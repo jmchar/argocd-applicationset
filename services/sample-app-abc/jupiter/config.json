@@ -1,0 +1,12 @@
+{
+  "cluster" : "jupiter",
+  "destination" : {
+    "server": "https://kubernetes.default.svc",
+    "namespace": "dev"
+  },
+  "application": {
+    "repoURL": "https://raw.githubusercontent.com/jmchar/helm-git-repo/main",
+    "targetRevision": "0.1.0"
+  }
+}
+  

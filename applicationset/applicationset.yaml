@@ -9,11 +9,11 @@ spec:
         repoURL: https://github.com/jmchar/argocd-applicationset.git
         revision: HEAD
         files:
-          - path: configs/*/values.yaml
-          - path: configs/*/*/values.yaml
+          - path: services/*/config.json
+          - path: services/*/*/config.json
   template:
     metadata:
-      namespace: argocd-'{{cluster}}'
+      namespace: argocd-'{{ cluster }}'
       name: '{{ cluster }}-{{ name }}'
     spec:
       project: argocd-applicationset-poc
