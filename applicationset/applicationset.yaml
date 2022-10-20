@@ -8,24 +8,20 @@ spec:
     - git:
         repoURL: https://github.com/jmchar/argocd-applicationset.git
         revision: HEAD
-        directories:
-        - path: configs/*/*
+        files:
+          - path: configs/*/values.yaml
+          - path: configs/*/*/values.yaml
   template:
     metadata:
-      namespace: argocd-'{{path[2]}}'
-      name: '{{path[2]}}-{{path[1]}}'
+      namespace: argocd-'{{cluster}}'
+      name: '{{ cluster }}-{{ name }}'
     spec:
       project: argocd-applicationset-poc
       source:
-        chart: '{{path[1]}}'
-        helm:
-          # specify different values file based on directories variables
-          valueFiles:
-            - "configs/{{path[1]}}/{{path[2]}}/values.yaml"
-            - "configs/{{path[1]}}/values.yaml"
-        repoURL: https://raw.githubusercontent.com/jmchar/helm-git-repo/main
+        chart: '{{ name }}'
+        repoURL: '{{ application.repoURL }}'
         path: ''
-        targetRevision: 0.1.0
+        targetRevision: {{ application.targetRevision }}
       destination:
-        server: https://kubernetes.default.svc
-        namespace: "{{path[2]}}"
+        server: '{{ destination.server }}'
+        namespace: '{{ destination.namespace }}'

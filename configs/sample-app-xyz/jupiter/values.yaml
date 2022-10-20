@@ -1,3 +1,5 @@
+cluster: jupiter
+
 destination:
   server: https://kubernetes.default.svc
   namespace: uat

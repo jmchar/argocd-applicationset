@@ -1,3 +1,5 @@
+cluster: earth
+
 destination:
   server: https://kubernetes.default.svc
   namespace: uat
