@@ -21,7 +21,8 @@ spec:
           # specify different values file based on directories variables
           valueFiles:
             - "configs/{{path[2]}}/{{path.basename}}/values.yaml"
-        repoURL: 'https://gitlab.lblw.ca/pcf-engineering/pc-financial/cicd/argocd-applicationset.git'
+            - "configs/{{path[2]}}/values.yaml"
+        repoURL: 'https://github.com/jmchar/argocd-applicationset.git'
         targetRevision: HEAD
       destination:
         server: https://kubernetes.default.svc
