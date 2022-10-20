@@ -9,19 +9,18 @@ spec:
         repoURL: https://github.com/jmchar/argocd-applicationset.git
         revision: HEAD
         files:
-          - path: services/*/config.json
           - path: services/*/*/config.json
   template:
     metadata:
-      namespace: argocd-'{{ cluster }}'
-      name: '{{ cluster }}-{{ name }}'
+      namespace: argocd-'{{ path[2] }}'
+      name: '{{ path[2] }}-{{ path[1] }}'
     spec:
       project: argocd-applicationset-poc
       source:
-        chart: '{{ name }}'
+        chart: '{{ path[1] }}'
         repoURL: '{{ application.repoURL }}'
         path: ''
-        targetRevision: {{ application.targetRevision }}
+        targetRevision: '{{ application.targetRevision }}'
       destination:
         server: '{{ destination.server }}'
         namespace: '{{ destination.namespace }}'
