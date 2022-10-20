@@ -1,0 +1,10 @@
+name : "sample-app"
+
+destination:
+  server: ""
+  namespace: ""
+
+application:
+  repoURL: ""
+  useChartRepo: true
+  targetRevision: ""

@@ -1,0 +1,8 @@
+destination:
+  server: https://kubernetes.default.svc
+  namespace: uat
+
+application:
+  repoURL: https://raw.githubusercontent.com/jmchar/helm-git-repo/main
+  useChartRepo: true
+  targetRevision: 0.1.0

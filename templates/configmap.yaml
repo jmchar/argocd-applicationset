@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ camelcase .Values.name | lower }}-configmap
+data:
+  server: {{ .Values.destination.server }}
+  namespace: {{ .Values.destination.namespace }}
+  repoURL: {{ .Values.application.repoURL }}
+  useChartRepo: {{ .Values.application.useChartRepo }}
+  targetRevision: {{ .Values.application.targetRevision }}
