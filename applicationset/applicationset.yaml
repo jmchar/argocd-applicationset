@@ -12,20 +12,20 @@ spec:
         - path: configs/*/*
   template:
     metadata:
-      namespace: argocd-'{{path.basename}}'
+      namespace: argocd-'{{path[2]}}'
       name: '{{path[2]}}-{{path[1]}}'
     spec:
       project: argocd-applicationset-poc
       source:
-        chart: argocd-applicationset-helm
+        chart: '{{path[1]}}'
         helm:
           # specify different values file based on directories variables
           valueFiles:
-            - "configs/{{path[2]}}/{{path.basename}}/values.yaml"
-            - "configs/{{path[2]}}/values.yaml"
+            - "configs/{{path[1]}}/{{path[2]}}/values.yaml"
+            - "configs/{{path[1]}}/values.yaml"
         repoURL: https://raw.githubusercontent.com/jmchar/helm-git-repo/main
         path: ''
-        targetRevision: HEAD
+        targetRevision: 0.1.0
       destination:
         server: https://kubernetes.default.svc
-        namespace: "{{path.basename}}"
+        namespace: "{{path[2]}}"
