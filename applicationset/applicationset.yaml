@@ -12,8 +12,8 @@ spec:
           - path: services/*/*/config.json
   template:
     metadata:
-      namespace: argocd-'{{ path[2] }}'
-      name: '{{ path[2] }}-{{ path[1] }}'
+      namespace: argocd-'{{ destination.cluster }}'
+      name: '{{ destination.cluster }}-{{ application.name }}'
     spec:
       project: argocd-applicationset-poc
       source:
