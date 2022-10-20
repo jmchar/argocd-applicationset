@@ -6,23 +6,25 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: 'https://github.com/jmchar/argocd-applicationset.git'
+        repoURL: https://github.com/jmchar/argocd-applicationset.git
         revision: HEAD
         directories:
         - path: configs/*/*
   template:
     metadata:
       namespace: argocd-'{{path.basename}}'
-      name: '{{path[2]}}-{{path.basename}}'
+      name: '{{path[2]}}-{{path[1]}}'
     spec:
       project: argocd-applicationset-poc
       source:
+        chart: argocd-applicationset-helm
         helm:
           # specify different values file based on directories variables
           valueFiles:
             - "configs/{{path[2]}}/{{path.basename}}/values.yaml"
             - "configs/{{path[2]}}/values.yaml"
-        repoURL: 'https://github.com/jmchar/argocd-applicationset.git'
+        repoURL: https://raw.githubusercontent.com/jmchar/helm-git-repo/main
+        path: ''
         targetRevision: HEAD
       destination:
         server: https://kubernetes.default.svc

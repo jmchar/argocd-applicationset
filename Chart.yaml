@@ -1,5 +1,5 @@
 apiVersion: v2
-name: argocd-applicationset
+name: argocd-applicationset-helm
 description: Implements Argo CD Application Set Pattern
 
 # A chart can be either an 'application' or a 'library' chart.
