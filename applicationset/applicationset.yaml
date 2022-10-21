@@ -17,7 +17,7 @@ spec:
     spec:
       project: argocd-applicationset-poc
       source:
-        chart: '{{ path[1] }}'
+        chart: '{{ application.name }}'
         repoURL: '{{ application.repoURL }}'
         path: ''
         targetRevision: '{{ application.targetRevision }}'

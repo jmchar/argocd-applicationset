@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: {{ .Values.applicationset.name }}
+  namespace: {{ .Values.applicationset.namespace }}
+spec:
+  generators:
+    - git:
+        repoURL: {{ .Values.applicationset.repoURL }}
+        revision: {{ .Values.applicationset.revision }}
+        files:
+        {{- range $path := .Values.applicationset.files }}
+          - path: {{ $path }}
+        {{- end }}
+  template:
+    {{- range .Files.Lines "application.yaml" }}
+    {{ . }}{{ end }}

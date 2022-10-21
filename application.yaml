@@ -1,0 +1,13 @@
+metadata:
+  namespace: argocd-'{{ destination.cluster }}'
+  name: '{{ destination.cluster }}-{{ application.name }}'
+spec:
+  project: argocd-applicationset-poc
+  source:
+    chart: '{{ application.name }}'
+    repoURL: '{{ application.repoURL }}'
+    path: ''
+    targetRevision: '{{ application.targetRevision }}'
+  destination:
+    server: '{{ destination.server }}'
+    namespace: '{{ destination.namespace }}'
