@@ -1,5 +1,5 @@
 apiVersion: v2
-name: pcf-argocd-applicationset
+name: argocd-applicationset
 description: A Helm chart for creating a set of ArgoCD applications using ApplicationSet pattern
 
 # A chart can be either an 'application' or a 'library' chart.
