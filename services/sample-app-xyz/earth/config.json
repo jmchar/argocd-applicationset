@@ -5,6 +5,7 @@
     "namespace": "uat"
   },
   "application": {
+    "name" : "sample-app-xyz",
     "repoURL": "https://raw.githubusercontent.com/jmchar/helm-git-repo/main",
     "targetRevision": "0.1.0"
   }

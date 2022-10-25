@@ -4,6 +4,5 @@ applicationset:
   repoURL: https://github.com/jmchar/argocd-applicationset.git
   revision: HEAD
   files:
-    - services/*/config.yaml
     - services/*/earth/config.json
     - services/*/jupiter/config.json
