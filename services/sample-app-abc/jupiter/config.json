@@ -5,7 +5,6 @@
     "namespace": "dev"
   },
   "application": {
-    "name": "sample-app-abc",
     "repoURL": "https://raw.githubusercontent.com/jmchar/helm-git-repo/main",
     "targetRevision": "0.2.0"
   }

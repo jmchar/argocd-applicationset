@@ -13,5 +13,20 @@ spec:
           - path: {{ $path }}
         {{- end }}
   template:
-    {{- range .Files.Lines "application.yaml" }}
-    {{ . }}{{ end }}
+    metadata:
+      name: '{{ printf "{{ destination.cluster }}" }}-{{ printf "{{ application.name }}" }}'
+      namespace: argocd-'{{ printf "{{ destination.cluster }}" }}'
+      {{- if .Values.useFinalizer | default true }}
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
+      {{- end }}
+    spec:
+      project: argocd-applicationset-poc
+      source:
+        chart: '{{ printf "{{ application.name }}" }}'
+        repoURL: '{{ printf "{{ application.repoURL }}" }}'
+        path: ''
+        targetRevision: '{{ printf "{{ application.targetRevision }}" }}'
+      destination:
+        server: '{{ printf "{{ destination.server }}" }}'
+        namespace: '{{ printf "{{ destination.namespace }}" }}'
