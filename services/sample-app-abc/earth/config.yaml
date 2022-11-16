@@ -1,0 +1,18 @@
+destination:
+  server: https://kubernetes.default.svc
+  cluster: earth
+  namespace: uat
+application:
+  name: sample-app-abc
+  repoURL: https://raw.githubusercontent.com/jmchar/helm-git-repo/main
+  targetRevision: 0.1.0
+  helm:
+    parameters:
+      - name: imageVersion
+        value: 0.34.0
+      - name: pcf-consul-sync.git.ref
+        value: v0.34.0
+      - name: gitRef
+        value: v0.34.0
+    valueFiles:
+      - values.yaml

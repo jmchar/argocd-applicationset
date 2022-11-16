@@ -1,8 +1,8 @@
 applicationset:
-  name: argocd-applicationset-helm-poc
-  namespace: argocd-poc
+  name: argocd-applicationset-helm
+  namespace: argocd
   repoURL: https://github.com/jmchar/argocd-applicationset.git
   revision: HEAD
   files:
-    - services/*/earth/config.json
-    - services/*/jupiter/config.json
+    - services/*/earth/config.yaml
+    - services/*/jupiter/config.yaml
