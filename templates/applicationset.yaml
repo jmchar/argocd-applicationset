@@ -28,7 +28,7 @@ spec:
         path: ''
         targetRevision: '{{ printf "{{ application.targetRevision }}" }}'
         helm: |
-          '{{ printf "{{ application.helm }}" }}'
+          '{{ printf "{{ helm }}" }}'
       destination:
         server: '{{ printf "{{ destination.server }}" }}'
         namespace: '{{ printf "{{ destination.namespace }}" }}'

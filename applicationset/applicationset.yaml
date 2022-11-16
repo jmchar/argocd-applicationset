@@ -22,7 +22,7 @@ spec:
         path: ''
         targetRevision: '{{ application.targetRevision }}'
         helm: |
-          '{{ application.helm }}'
+          '{{ helm }}'
       destination:
         server: '{{ destination.server }}'
         namespace: '{{ destination.namespace }}'
