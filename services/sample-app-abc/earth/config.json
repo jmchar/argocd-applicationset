@@ -8,6 +8,10 @@
     "name" : "sample-app-abc",
     "repoURL": "https://raw.githubusercontent.com/jmchar/helm-git-repo/main",
     "targetRevision": "0.1.0"
+  },
+  "helm" : {
+    "imageVersion" : "0.1.0",
+    "valuesFiles" : ["values.yaml"]
   }
 }
   
