@@ -23,7 +23,7 @@ spec:
         targetRevision: '{{ application.targetRevision }}'
         helm:
           values: |
-            {{ application.helm }}
+            {{ app_values }}
       destination:
         server: '{{ destination.server }}'
         namespace: '{{ destination.namespace }}'
