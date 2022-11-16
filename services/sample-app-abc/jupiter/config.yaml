@@ -7,18 +7,6 @@ application:
   repoURL: https://raw.githubusercontent.com/jmchar/helm-git-repo/main
   targetRevision: 0.2.0
   helm:
-    parameters: |
-      - name: imageVersion
-        value: 0.1.0
-      - name: pcf-consul-sync.git.ref
-        value: v0.1.0
-      - name: gitRef
-        value: v0.1.0
-    valueFiles: |
-      - values.yaml
-
-obj:
-  helm: |
     parameters:
       - name: imageVersion
         value: 0.1.0
@@ -27,4 +15,9 @@ obj:
       - name: gitRef
         value: v0.1.0
     valueFiles:
-      - values.yaml
+      - "environment/values.yaml"
+      - "values.yaml"
+    values: |
+      imageVersion: 0.1.0
+      pcf-consul-sync.git.ref: v0.1.0
+      gitRef: v0.1.0

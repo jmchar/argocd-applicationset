@@ -21,8 +21,9 @@ spec:
         repoURL: '{{ application.repoURL }}'
         path: ''
         targetRevision: '{{ application.targetRevision }}'
-        ignoreDifferences: |
-          {{ application.ignoreDifferences }}
+        helm:
+          parameters:
+            {{ application.helm.parameters }}
       destination:
         server: '{{ destination.server }}'
         namespace: '{{ destination.namespace }}'
