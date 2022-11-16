@@ -22,8 +22,8 @@ spec:
         path: ''
         targetRevision: '{{ application.targetRevision }}'
         helm:
-          values: |
-            {{ application.helm }}
+          parameters: |
+            {{ application.helm.parameters }}
       destination:
         server: '{{ destination.server }}'
         namespace: '{{ destination.namespace }}'
