@@ -22,7 +22,8 @@ spec:
         path: ''
         targetRevision: '{{ application.targetRevision }}'
         helm:
-          valuesFiles:
+          ignoreMissingValueFiles: true
+          valueFiles:
             - '{{ helm.valuesFiles }}'
           parameters:
             - name: imageVersion
