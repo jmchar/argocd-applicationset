@@ -27,6 +27,8 @@ spec:
         repoURL: '{{ printf "{{ application.repoURL }}" }}'
         path: ''
         targetRevision: '{{ printf "{{ application.targetRevision }}" }}'
+        helm:
+          '{{ printf "{{ application.helm }}" }}'
       destination:
         server: '{{ printf "{{ destination.server }}" }}'
         namespace: '{{ printf "{{ destination.namespace }}" }}'
