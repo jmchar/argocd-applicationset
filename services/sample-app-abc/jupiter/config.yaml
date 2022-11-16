@@ -16,10 +16,15 @@ application:
         value: v0.1.0
     valueFiles: |
       - values.yaml
-  ignoreDifferences: |
-    - group: apps
-      kind: Deployment
-      jsonPointers:
-        - /spec/template/spec/containers/0/resources/limits/cpu
-        - /spec/template/spec/containers/0/env/valueFrom/fieldRef/apiVersion
-        - /spec/template/spec/containers/0/terminationMessagePolicy
+
+obj:
+  helm: |
+    parameters:
+      - name: imageVersion
+        value: 0.1.0
+      - name: pcf-consul-sync.git.ref
+        value: v0.1.0
+      - name: gitRef
+        value: v0.1.0
+    valueFiles:
+      - values.yaml
