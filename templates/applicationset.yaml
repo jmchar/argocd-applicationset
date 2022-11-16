@@ -27,8 +27,12 @@ spec:
         repoURL: '{{ printf "{{ application.repoURL }}" }}'
         path: ''
         targetRevision: '{{ printf "{{ application.targetRevision }}" }}'
-        ignoreDifferences: |
-            '{{ printf "{{ app_values }}" }}'
-      destination:
-        server: '{{ printf "{{ destination.server }}" }}'
-        namespace: '{{ printf "{{ destination.namespace }}" }}'
+        helm:
+          valuesFiles:
+            - '{{ printf "{{ helm.valuesFiles }}" }}'
+          parameters:
+            - name: imageVersion
+              value: '{{ printf "{{ helm.imageVersion }}" }}'
+        destination:
+          server: '{{ printf "{{ destination.server }}" }}'
+          namespace: '{{ printf "{{ destination.namespace }}" }}'
