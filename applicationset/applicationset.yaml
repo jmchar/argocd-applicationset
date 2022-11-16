@@ -21,8 +21,9 @@ spec:
         repoURL: '{{ application.repoURL }}'
         path: ''
         targetRevision: '{{ application.targetRevision }}'
-        helm: |
-          '{{ helm }}'
+        helm:
+          values: |
+            {{ app_values }}
       destination:
         server: '{{ destination.server }}'
         namespace: '{{ destination.namespace }}'

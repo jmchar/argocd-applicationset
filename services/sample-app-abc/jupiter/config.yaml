@@ -16,3 +16,8 @@ helm: |
       value: v0.34.0
   valueFiles:
     - values.yaml
+app_values: |
+  image:
+    repository: ghcr.io/runatlantis/atlantis
+    tag: v0.19.8
+    pullPolicy: IfNotPresent
