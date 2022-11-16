@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/jmchar/argocd-applicationset.git
         revision: HEAD
         files:
-          - path: services/*/*/config.json
+          - path: services/*/*/config.yaml
   template:
     metadata:
       namespace: argocd-'{{ destination.cluster }}'
@@ -23,7 +23,7 @@ spec:
         targetRevision: '{{ application.targetRevision }}'
         helm:
           values: |
-            {{ app_values }}
+            {{ application.helm }}
       destination:
         server: '{{ destination.server }}'
         namespace: '{{ destination.namespace }}'
