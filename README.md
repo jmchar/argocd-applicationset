@@ -47,10 +47,11 @@ password: {}
 
 ## Create ApplicationSet
 ```
-kubectl apply -f applicationset.yaml -n argocd
+kubectl apply -f applicationset/applicationset.yaml -n argocd
 ```
 or
 ```
 kubectl config set-context --current --namespace=argocd
 argocd appset create applicationset.yaml
+argocd appset list
 ```
