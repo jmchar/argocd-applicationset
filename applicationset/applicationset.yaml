@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: argocd-applicationset-helm
+  name: argocd-applicationset
   namespace: argocd
 spec:
   generators:
@@ -18,7 +18,7 @@ spec:
         app: '{{ application.name }}'
         category: 'core'
     spec:
-      project: argocd-applicationset-poc
+      project: default
       source:
         chart: '{{ application.name }}'
         repoURL: '{{ application.repoURL }}'
