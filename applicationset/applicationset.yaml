@@ -14,6 +14,9 @@ spec:
     metadata:
       namespace: argocd-'{{ destination.cluster }}'
       name: '{{ destination.cluster }}-{{ application.name }}'
+      labels: 
+        app: '{{ application.name }}'
+        category: 'core'
     spec:
       project: argocd-applicationset-poc
       source:
